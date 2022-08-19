@@ -1,0 +1,125 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    color: inherit;
+}
+
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * 0.9);
+    --cell-opacity: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    min-height: 95vh;
+    max-width: 100vw;
+    font-family: sans-serif;
+    color: #444;
+}
+
+.board {
+    width: calc(var(--cell-size) * 3);
+    height: calc(var(--cell-size) * 3);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.border-b {
+    border-bottom: solid;
+}
+
+.border-r {
+    border-right: solid;
+}
+
+.border-l {
+    border-left: solid;
+}
+
+.border-t {
+    border-top: solid;
+}
+
+#startBtn {
+    background-color: gray;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 300ms ease-out;
+}
+
+#startBtn:hover {
+    background-color: black;
+}
+
+[data-cell] {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-color: black;
+    border-width: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+[data-cell]::before {
+    font-size: 4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    font-family: monospace;
+    text-transform: lowercase;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
+
+[data-cell]::before {
+    content: attr(data-cell-hover);
+}
+
+[data-cell]:hover[data-cell]::before {
+    opacity: 0.2;
+}
+
+[data-cell].set {
+    pointer-events: none;
+}
+
+[data-cell].set[data-cell]::before {
+    opacity: 1;
+    content: attr(data-cell);
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#msg {
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+    overflow: hidden;
+}

@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/index.css" />
+        <script type="module" src="js/index.js" defer async></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="board circle" id="board">
-        <div class="cell x" data-cell></div>
-        <div class="cell circle" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-    </div>
-    <div class="winning-message " id="winningMessage">
-        <div data-winnig-message-text></div>
-        <button id="restartButton">Restart</button>
-    </div>
-</body>
-
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="board" class="hidden">
+            <div data-cell="" data-cell-hover=""></div>
+            <div class="border-r border-l" data-cell="" data-cell-hover=""></div>
+            <div data-cell="" data-cell-hover=""></div>
+            <div class="border-b border-t" data-cell="" data-cell-hover=""></div>
+            <div class="border-b border-l border-r border-t" data-cell="" data-cell-hover=""></div>
+            <div class="border-b border-t" data-cell="" data-cell-hover=""></div>
+            <div data-cell="" data-cell-hover=""></div>
+            <div class="border-l border-r" data-cell="" data-cell-hover=""></div>
+            <div data-cell="" data-cell-hover=""></div>
+        </div>
+        <div class="bottom">
+            <p id="msg">Click the start button to start the game</p>
+            <button id="startBtn">Start</button>
+        </div>
+    </body>
 </html>
